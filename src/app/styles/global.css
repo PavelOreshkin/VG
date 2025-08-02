@@ -1,4 +1,7 @@
-body {
-  /* font-family: "Fixel", sans-serif; */
-  /* background: red; */
+* {
+  box-sizing: border-box;
+}
+
+button {
+  padding: 0;
 }

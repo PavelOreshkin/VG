@@ -7,17 +7,18 @@
       --success-border:         rgba(115, 226, 163, 1); /* бордер */
       --success-border-shadow:  rgba(211, 248, 223, 1); /* тень бордера */
       --success-bg:             rgba(237, 252, 242, 1); /* фон */
-      --success-check:          rgba(18, 183, 106, 1);  /* галочка */
-      --success-check-bg:       rgba(209, 250, 223, 1); /* фон галочки */
+      /* --success-check:          rgba(18, 183, 106, 1);  галочка */
+      /* --success-check-bg:       rgba(209, 250, 223, 1); фон галочки */
     /* red */
       --error-text:           rgba(240, 68, 56, 1);   /* текст ошибки */
       --error-border:         rgba(253, 162, 155, 1); /* бордер ошибки   */
       --error-border-shadow:  rgba(254, 228, 226, 1); /* тень бордера ошибки */
     /* gray */
       --gray-title:           rgba(52, 64, 84, 1);    /* заголовок текст */
-      --gray-text:            rgba(102, 112, 133, 1); /* текстv */
+      --gray-text:            rgba(102, 112, 133, 1); /* текс */
       --gray-strong:          rgba(16, 24, 40, 1);    /* темный текст и прогресс */
       --gray-border:          rgba(208, 213, 221, 1); /* бордер кнопки и задизейбленная кнопка */
+      --gray-border-hover:    rgba(171, 175, 181, 1);
       --gray-button-text:     rgba(71, 84, 103, 1);   /* текст "text" кнопки */
       --gray-button-outline:  rgba(52, 64, 84, 1);    /* текст "outline" кнопки  */
       --gray-button-disabled: rgba(152, 162, 179, 1); /* текст "disabled" кнопки */

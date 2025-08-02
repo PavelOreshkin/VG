@@ -1,0 +1,19 @@
+.fromRoot {
+  width: 100%;
+}
+
+.divider {
+  border-bottom: 1px solid var(--gray-border);
+  margin: 12px 0 16px;
+}
+
+.from {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.row {
+  display: flex;
+  gap: 16px;
+}

@@ -17,15 +17,16 @@
 .smallSize {
   height: 40px;
 }
+
 .mediumSize {
   height: 44px;
+  padding: 0 18px;
 
   & p {
     font-family: "Fixel Text";
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
-    /* line-height: 24px; */
   }
 
   & .content {
@@ -35,15 +36,13 @@
 
 .largeSize {
   height: 60px;
+  padding: 0 28px;
 
   & p {
     font-family: var(--font-text);
     font-style: normal;
     font-weight: 600;
     font-size: 18px;
-    /* line-height: 28px; */
-
-    vertical-align: middle;
   }
 
   & .content {
@@ -52,7 +51,9 @@
 }
 
 .textVariant {
+  height: auto;
   box-shadow: none;
+  padding: 0;
   color: var(--gray-button-text);
 
   & p {
@@ -60,22 +61,12 @@
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
-
-    /* line-height: 24px; */
   }
 }
 
 .containedVariant {
   background: var(--success-button-bg);
   color: var(--white);
-
-  /* &.largeSize {
-    font-family: var(--font-text);
-    font-style: normal;
-    font-weight: 600;
-    font-size: 18px;
-    line-height: 28px;
-  } */
 
   &.disabled {
     background: var(--gray-border);
@@ -92,26 +83,5 @@
     & svg {
       opacity: 0.4;
     }
-  }
-}
-
-.successColor {
-  /* background: green; */
-}
-.transparentColor {
-}
-
-.load {
-  animation: spin 2s linear infinite;
-  transform-origin: center;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
   }
 }

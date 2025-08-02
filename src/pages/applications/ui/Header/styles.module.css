@@ -1,0 +1,10 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.divider {
+  border-bottom: 1px solid var(--gray-border);
+  margin-bottom: 24px;
+}

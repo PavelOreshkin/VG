@@ -1,0 +1,14 @@
+.applicationManageRoot {
+  display: flex;
+  flex-direction: column;
+}
+
+.row {
+  display: flex;
+  gap: 32px;
+  height: 600px;
+}
+
+.card {
+  height: 601px !important;
+}

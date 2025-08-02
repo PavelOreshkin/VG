@@ -33,3 +33,7 @@
 .filled {
   opacity: 1;
 }
+
+.description {
+  color: var(--gray-text);
+}

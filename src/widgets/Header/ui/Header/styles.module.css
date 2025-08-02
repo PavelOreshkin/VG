@@ -1,9 +1,9 @@
 .root {
-  border: 1px solid green;
   height: 48px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 32px;
 }
 
 .logo {
@@ -15,4 +15,16 @@
 .rightSide {
   display: flex;
   align-items: center;
+}
+
+.description {
+  color: var(--gray-text);
+}
+
+.progress {
+  margin: 0 24px 0 16px;
+}
+
+.button {
+  width: 40px;
 }

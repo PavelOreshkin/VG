@@ -1,3 +1,4 @@
+import Typography from "../Typography";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 
@@ -31,9 +32,9 @@ const Progress = ({
         ))}
       </div>
       {withDescription && (
-        <p className={styles.description}>
+        <Typography className={styles.description}>
           {filled} out of {total}
-        </p>
+        </Typography>
       )}
     </div>
   );
