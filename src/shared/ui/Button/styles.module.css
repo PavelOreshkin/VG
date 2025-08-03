@@ -9,6 +9,10 @@
   cursor: pointer;
 }
 
+.disabled {
+  cursor: auto;
+}
+
 .content {
   display: flex;
   align-items: center;

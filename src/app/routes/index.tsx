@@ -3,16 +3,9 @@
 
 import { ApplicationManage } from "@/pages/application-manage";
 import { Applications } from "@/pages/applications";
+import { AppRoutes } from "@/shared/routes";
 // import { Navigate, Route, Routes } from "react-router-dom";
 import { Routes, Route, Navigate } from "react-router";
-
-export const AppRoutes = {
-  APPLICATION: "/applications",
-  CREATE_APPLICATION: "/create-application",
-  EDIT_APPLICATION: "/edit-application",
-
-  application: (id: string) => `/applications/${id}`,
-} as const;
 
 const MainRouter = () => {
   return (

@@ -13,7 +13,7 @@ type ButtonProps = {
   endIcon?: React.ReactNode;
   className?: string;
   type?: "submit" | "reset" | "button";
-  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Button = ({
@@ -42,6 +42,7 @@ const Button = ({
       )}
       type={type}
       onClick={onClick}
+      disabled={disabled}
     >
       {loading && <Loader />}
       {!loading && (
