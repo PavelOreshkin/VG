@@ -32,7 +32,7 @@ export const sendPrompt = async ({
     //   });
     //   return response.output_text;
 
-    return "generated text";
+    return String(Math.floor(Math.random() * 1000) + 1);
   } catch (error) {
     console.error(error);
   }

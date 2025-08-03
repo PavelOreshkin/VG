@@ -2,10 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 16px;
 }
 
 .divider {
-  border-bottom: 1px solid var(--gray-border);
-  margin-bottom: 24px;
+  margin: 16px 0 24px;
 }

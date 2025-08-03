@@ -1,6 +1,6 @@
-import { useApplicationStore } from "@/entities/application/model";
+import { useApplicationStore } from "@/entities/application";
 import styles from "./styles.module.css";
-import { ApplicationCard } from "@/entities/application";
+import { ApplicationCard } from "@/widgets/application-card";
 
 const CardList = () => {
   const { applications } = useApplicationStore();

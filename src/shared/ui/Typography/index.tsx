@@ -5,7 +5,6 @@ import clsx from "clsx";
 type TypographyProps = {
   as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div" | "pre";
   type?: "h1" | "h2" | "default" | "caption";
-  // type?: any;
   className?: string;
 };
 
@@ -29,12 +28,3 @@ const Typography = ({
 };
 
 export default Typography;
-
-{
-  /* <Typography as="h1" type="h1">
-  Applications
-</Typography>
-<Typography as="h2" type="h2">
-  New application
-</Typography> */
-}

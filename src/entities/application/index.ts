@@ -1,1 +1,1 @@
-export { default as ApplicationCard } from "./ui/Card";
+export { useApplicationStore } from "./model";

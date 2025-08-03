@@ -1,4 +1,4 @@
-import type { INIT_FORM } from ".";
+import type { INIT_FORM } from "./constants";
 
 export const VALIDATION_MAP = {
   jobTitle: (value: string) => (value ? "" : "Job title is required"),

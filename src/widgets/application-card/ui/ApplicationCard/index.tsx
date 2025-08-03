@@ -1,13 +1,13 @@
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import Button from "@/shared/ui/Button";
-import CopyIcon from "@icons/copy.svg?react";
 import TrashIcon from "@icons/trash.svg?react";
 import Typography from "@/shared/ui/Typography";
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "@/shared/routes";
-import { useApplicationStore } from "../../model";
 import { useMobile } from "@/shared/lib/mobile/useMobile";
+import { ClipboardCopy } from "@/features/clipboard-copy";
+import { useApplicationStore } from "@/entities/application";
 
 type ApplicationCardProps = {
   id?: string;
@@ -94,14 +94,7 @@ const ApplicationCard = ({
               </Button>
             )}
             <div />
-            <Button
-              variant="text"
-              endIcon={<CopyIcon height={iconSize} width={iconSize} />}
-              onClick={handleCopy}
-              aria-label="copy"
-            >
-              Copy to clipboard
-            </Button>
+            <ClipboardCopy content={content} />
           </div>
         </>
       )}

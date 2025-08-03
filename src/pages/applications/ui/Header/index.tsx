@@ -1,36 +1,18 @@
-import Button from "@/shared/ui/Button";
 import Typography from "@/shared/ui/Typography";
-import PlusIcon from "@icons/plus.svg?react";
 import styles from "./styles.module.css";
-import { useNavigate } from "react-router-dom";
-import { AppRoutes } from "@/shared/routes";
+import { CreateApplicationButton } from "@/features/open-create-application";
+import Divider from "@/shared/ui/Divider";
 
-const Header = () => {
-  const navigate = useNavigate();
-
-  const handleGoToCreatePage = () => {
-    navigate(AppRoutes.CREATE_APPLICATION);
-  };
-
-  return (
-    <>
-      <div className={styles.header}>
-        <Typography as="h1" type="h1">
-          Applications
-        </Typography>
-        <Button
-          variant="contained"
-          size="medium"
-          startIcon={<PlusIcon />}
-          onClick={handleGoToCreatePage}
-          aria-label="create new"
-        >
-          Create New
-        </Button>
-      </div>
-      <div className={styles.divider} />
-    </>
-  );
-};
+const Header = () => (
+  <header>
+    <div className={styles.header}>
+      <Typography as="h1" type="h1">
+        Applications
+      </Typography>
+      <CreateApplicationButton size="medium" />
+    </div>
+    <Divider className={styles.divider} />
+  </header>
+);
 
 export default Header;

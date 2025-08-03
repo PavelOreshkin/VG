@@ -1,4 +1,4 @@
-import { Header } from "@/widgets/Header";
+import { Header } from "@/widgets/header";
 import Providers from "../providers";
 import MainRouter from "../routes";
 

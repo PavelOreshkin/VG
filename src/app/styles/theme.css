@@ -3,16 +3,16 @@
 :root {
   /* COLORS */
     /* green */
-      --success-button-bg-active:rgb(6, 72, 43);
-      --success-button-bg-hover: rgb(7, 89, 52);
-      --success-button-bg:       rgb(8, 116, 67);
-      --success-border:          rgb(115, 226, 163);
-      --success-border-shadow:   rgb(211, 248, 223);
-      --success-bg:              rgb(237, 252, 242);
+      --success-button-bg-active:   rgb(6, 72, 43);
+      --success-button-bg-hover:    rgb(7, 89, 52);
+      --success-button-bg:          rgb(8, 116, 67);
+      --success-border:             rgb(115, 226, 163);
+      --success-border-shadow:      rgb(211, 248, 223);
+      --success-bg:                 rgb(237, 252, 242);
     /* red */
-      --error-text:           rgb(240, 68, 56);
-      --error-border:         rgb(253, 162, 155);
-      --error-border-shadow:  rgb(254, 228, 226);
+      --error-text:                 rgb(240, 68, 56);
+      --error-border:               rgb(253, 162, 155);
+      --error-border-shadow:        rgb(254, 228, 226);
     /* gray */
       --gray-title:                 rgb(52, 64, 84);
       --gray-text:                  rgb(102, 112, 133);
@@ -26,8 +26,8 @@
       --gray-button-disabled:       rgb(152, 162, 179);
       --gray-bg:                    rgb(242, 244, 247);
     /* base */
-      --white: rgb(255, 255, 255);
-      --black: rgb(0, 0, 0);
+      --white:                      rgb(255, 255, 255);
+      --black:                      rgb(0, 0, 0);
 
   /* FONTS */
     --font-text: 'Fixel Text', sans-serif;

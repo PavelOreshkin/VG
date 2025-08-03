@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
-import { useApplicationStore } from "@/entities/application/model";
+import { useApplicationStore } from "@/entities/application";
 import LogoIcon from "@icons/logo-icon.svg?react";
 import LogoLabel from "@icons/logo-label.svg?react";
 import Progress from "@/shared/ui/Progress";
