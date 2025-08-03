@@ -51,6 +51,7 @@ const Header = () => {
             onClick={handleGoHomePage}
             startIcon={<HomeIcon />}
             className={styles.button}
+            aria-label="home page"
           />
         </div>
       </div>

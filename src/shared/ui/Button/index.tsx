@@ -1,7 +1,7 @@
 import type { PropsWithChildren } from "react";
 import styles from "./styles.module.css";
 import clsx from "clsx";
-import Loader from "@shared/ui/Loader";
+import Loader from "@/shared/ui/Loader";
 
 type ButtonProps = {
   loading?: boolean;
@@ -28,6 +28,7 @@ const Button = ({
   className,
   type,
   onClick,
+  ...props
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <button
@@ -43,6 +44,7 @@ const Button = ({
       type={type}
       onClick={onClick}
       disabled={disabled}
+      {...props}
     >
       {loading && <Loader className={styles.loader} />}
       {!loading && (

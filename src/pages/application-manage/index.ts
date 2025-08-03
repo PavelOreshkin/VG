@@ -1,1 +1,1 @@
-export { default as ApplicationManage } from "./ui/ApplicationManage";
+export { default } from "./ui/ApplicationManage";

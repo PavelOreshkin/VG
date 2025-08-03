@@ -36,6 +36,7 @@ const GoalBanner = () => {
           startIcon={<PlusIcon height={24} width={24} />}
           className={styles.button}
           onClick={handleGoToCreatePage}
+          aria-label="create new"
         >
           Create New
         </Button>

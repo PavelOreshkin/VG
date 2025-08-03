@@ -102,8 +102,16 @@
   color: var(--white);
 
   &.disabled {
-    background: var(--gray-border);
-    color: var(--gray-button-disabled);
+    background: var(--gray-border) !important;
+    color: var(--gray-button-disabled) !important;
+  }
+
+  &:hover {
+    background: var(--success-button-bg-hover);
+  }
+
+  &:active {
+    background: var(--success-button-bg-active);
   }
 }
 
@@ -111,11 +119,19 @@
   border: 1px solid var(--gray-border);
 
   &.disabled {
-    color: var(--gray-button-disabled);
+    color: var(--gray-button-disabled) !important;
 
     & svg {
       opacity: 0.4;
     }
+  }
+
+  &:hover {
+    background: var(--gray-button-outline-hover);
+  }
+
+  &:active {
+    background: var(--gray-button-outline-active);
   }
 
   & .loader path {

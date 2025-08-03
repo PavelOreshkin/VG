@@ -24,6 +24,7 @@ export const Textarea = ({
   onChange,
   placeholder,
   className,
+  ...props
 }: TextareaProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     onChange({ field: name, value: e.target.value });
@@ -39,6 +40,7 @@ export const Textarea = ({
         onChange={handleChange}
         value={value}
         placeholder={placeholder}
+        {...props}
       />
       <Typography
         className={clsx(styles.caption, { [styles.error]: error })}

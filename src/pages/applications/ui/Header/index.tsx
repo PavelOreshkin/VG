@@ -23,6 +23,7 @@ const Header = () => {
           size="medium"
           startIcon={<PlusIcon />}
           onClick={handleGoToCreatePage}
+          aria-label="create new"
         >
           Create New
         </Button>

@@ -1,23 +1,12 @@
 import { BrowserRouter } from "react-router-dom";
-import RootLayout from "@shared/ui/RootLayout";
+import RootLayout from "@/shared/ui/RootLayout";
 import { MobileProvider } from "./mobile/MobileProvider";
+import type { PropsWithChildren } from "react";
 
-// import { store } from "../store/store";
-// import { Toaster } from 'react-hot-toast';
-
-const Providers: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+const Providers = ({ children }: PropsWithChildren) => (
   <BrowserRouter>
     <MobileProvider>
       <RootLayout>{children}</RootLayout>
-      {/* <Toaster
-        position="bottom-right"
-        toastOptions={{
-          style: {
-            background: 'red',
-            color: '#fff',
-          },
-        }}
-      /> */}
     </MobileProvider>
   </BrowserRouter>
 );

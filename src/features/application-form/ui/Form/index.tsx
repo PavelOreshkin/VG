@@ -51,7 +51,6 @@ const From = () => {
       e.preventDefault();
 
       const isInvalidForm = validateFields(form, handleChange);
-      console.log("isInvalidForm: ", isInvalidForm);
       if (isInvalidForm) return;
 
       const response = await sendPrompt({
@@ -121,12 +120,14 @@ const From = () => {
             name="jobTitle"
             {...form.jobTitle}
             onChange={handleChange}
+            aria-label="job title input"
           />
           <Input
             label="Company"
             name="company"
             {...form.company}
             onChange={handleChange}
+            aria-label="company input"
           />
         </div>
         <Input
@@ -134,6 +135,7 @@ const From = () => {
           name="skills"
           {...form.skills}
           onChange={handleChange}
+          aria-label="skills input"
         />
         <Textarea
           label="Additional details"
@@ -141,6 +143,7 @@ const From = () => {
           {...form.details}
           onChange={handleChange}
           maxLength={1200}
+          aria-label="details textarea"
         />
         {isEditFormMode ? (
           <Button
@@ -150,6 +153,7 @@ const From = () => {
             disabled={isDisabledSubmitButton}
             type="submit"
             loading={loading}
+            aria-label="retry"
           >
             Try Again
           </Button>
@@ -160,6 +164,7 @@ const From = () => {
             disabled={isDisabledSubmitButton}
             type="submit"
             loading={loading}
+            aria-label="generate"
           >
             Generate Now
           </Button>

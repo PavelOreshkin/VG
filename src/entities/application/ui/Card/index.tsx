@@ -88,6 +88,7 @@ const ApplicationCard = ({
                 variant="text"
                 startIcon={<TrashIcon height={iconSize} width={iconSize} />}
                 onClick={handleRemove}
+                aria-label="delete"
               >
                 Delete
               </Button>
@@ -97,6 +98,7 @@ const ApplicationCard = ({
               variant="text"
               endIcon={<CopyIcon height={iconSize} width={iconSize} />}
               onClick={handleCopy}
+              aria-label="copy"
             >
               Copy to clipboard
             </Button>

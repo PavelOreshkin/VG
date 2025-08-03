@@ -22,6 +22,7 @@ export const Input = ({
   onChange,
   placeholder,
   className,
+  ...props
 }: InputProps) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange({ field: name, value: e.target.value });
@@ -38,6 +39,7 @@ export const Input = ({
         value={value}
         onChange={handleChange}
         placeholder={placeholder}
+        {...props}
       />
       {touched && error && (
         <Typography className={styles.error} type="caption">
