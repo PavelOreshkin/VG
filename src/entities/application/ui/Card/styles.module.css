@@ -13,7 +13,7 @@
   }
 }
 
-.content {
+.contentWrap {
   position: relative;
   overflow: hidden;
   flex-grow: 1;
@@ -43,6 +43,10 @@
   &::-webkit-scrollbar-thumb:hover {
     background-color: var(--gray-border-hover);
   }
+}
+
+.content {
+  white-space: pre-wrap;
 }
 
 .fade {

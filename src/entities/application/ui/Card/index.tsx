@@ -71,11 +71,13 @@ const ApplicationCard = ({
       {!loading && (
         <>
           <div
-            className={clsx(styles.content, {
+            className={clsx(styles.contentWrap, {
               [styles.contentFullHeight]: fullHeight,
             })}
           >
-            <Typography as="pre">{content}</Typography>
+            <Typography as="pre" className={styles.content}>
+              {content}
+            </Typography>
             {!fullHeight && <div className={styles.fade} />}
           </div>
           <div className={styles.actions}>

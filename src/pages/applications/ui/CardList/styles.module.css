@@ -1,9 +1,9 @@
 .applicationCards {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 карточки по 50% */
-  gap: 24px 16px; /* row-gap, column-gap */
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 16px;
 
   @media (max-width: 700px) {
-    grid-template-columns: 1fr; /* одна колонка */
+    grid-template-columns: 1fr;
   }
 }

@@ -6,7 +6,6 @@
 .row {
   display: flex;
   gap: 32px;
-  /* height: 600px; */
 }
 
 .card {

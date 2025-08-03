@@ -24,24 +24,12 @@ const ApplicationManage = () => {
         <ApplicationForm />
         <ApplicationCard
           loading={loading}
-          content={"123"}
-          canRemove={false}
-          fullHeight
-          className={styles.card}
-        />
-      </div>
-      {/* <br />
-      <br />
-      <div className={styles.row}>
-        <ApplicationForm />
-        <ApplicationCard
-          loading={loading}
           content={content}
           canRemove={false}
           fullHeight
           className={styles.card}
         />
-      </div> */}
+      </div>
       <GoalBanner />
     </div>
   );
