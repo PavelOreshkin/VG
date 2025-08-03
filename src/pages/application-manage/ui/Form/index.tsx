@@ -4,31 +4,100 @@ import Input from "@/shared/ui/Input";
 import Button from "@/shared/ui/Button";
 import Textarea from "@/shared/ui/Textarea";
 import RepeatIcon from "@icons/repeat.svg?react";
+import { useState } from "react";
 
-const MOCK_CONTENT =
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nam, ullam velit temporibus dolore hic eius. Perferendis quam vitae eveniet in sed, libero excepturi quia voluptas illum odio, animi facilis molestiae? Similique consequatur doloribus iure vitae, voluptas aut ipsa ex et quo, dicta laborum exercitationem nobis corporis error in corrupti praesentium aspernatur? Voluptas a maxime sunt veniam voluptatibus reprehenderit vel fugit tempore quae corporis ex facere ducimus porro modi quam non nostrum eos vitae delectus ea, at quo asperiores nam dolorem. Aliquid omnis nam molestias odit cumque ad sed nihil est consequuntur, quo reiciendis laborum impedit non, rerum eligendi inventore dolores autem! Veritatis officia animi, voluptas aut optio nihil eveniet obcaecati minima nobis dolorum, magni commodi maiores. Natus quia accusantium a aliquam eum, exercitationem veritatis labore deleniti repudiandae quibusdam laborum corporis mollitia dolorem illo itaque! Soluta modi cupiditate nisi velit accusamus eos quam. Ad voluptas blanditiis natus eaque incidunt reprehenderit quibusdam reiciendis assumenda, amet odit voluptatem quod corporis ipsa animi possimus. Omnis optio, molestias nulla fugiat ut doloribus reiciendis nihil consequuntur praesentium, ad minima nobis harum animi perferendis quam expedita nisi repellat debitis ratione consequatur? Repudiandae praesentium provident dolore veniam suscipit, et vel nobis consequatur perferendis, voluptas labore ab possimus laudantium?";
+const INIT_FORM = {
+  jobTitle: { value: "qqq", error: "", touched: false },
+  company: { value: "www", error: "", touched: false },
+  skills: { value: "eee", error: "", touched: false },
+  details: { value: "rrr", error: "", touched: false },
+} as const;
+
+const VALIDATION_MAP = {
+  jobTitle: (value: string) => (value ? "" : "Job title is required"),
+  company: (value: string) => (value ? "" : "Company is required"),
+  skills: (value: string) => (value ? "" : "Skills are required"),
+  details: (value: string) =>
+    value.length <= 1200 ? "" : "Details must be less than 1200 characters",
+} as const;
 
 const From = () => {
   const isGenerated = false;
+
+  const [form, setForm] = useState(INIT_FORM);
+
+  const validateAllFields = () => {
+    let isInvalidForm = false;
+    Object.entries(form).forEach(([key, values]) => {
+      const isError = handleChange({
+        field: key as keyof typeof form,
+        value: values.value,
+      });
+      if (isError) isInvalidForm = true;
+    });
+    return isInvalidForm;
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const isInvalidForm = validateAllFields();
+    console.log("isInvalidForm: ", isInvalidForm);
+    if (isInvalidForm) return;
+
+    console.log("SUBMIT: ", form);
+  };
+
+  const handleChange = ({ field, value }: { field: string; value: string }) => {
+    const validate = VALIDATION_MAP[field as keyof typeof INIT_FORM];
+    const error = validate?.(value) || "";
+    setForm((prev) => ({ ...prev, [field]: { value, error, touched: true } }));
+    return error;
+  };
+
+  console.log("form: ", form);
+
   return (
     <div className={styles.fromRoot}>
       <Typography as="h2" type="h2">
         Product manager, Apple
       </Typography>
       <div className={styles.divider} />
-      <form action="submit" className={styles.from}>
+      <form action="submit" className={styles.from} onSubmit={handleSubmit}>
         <div className={styles.row}>
-          <Input label="Job title" value="Product manager" />
-          <Input label="Company" value="Apple" /* errorText="required" */ />
+          <Input
+            label="Job title"
+            name="jobTitle"
+            {...form.jobTitle}
+            onChange={handleChange}
+          />
+          <Input
+            label="Company"
+            name="company"
+            {...form.company}
+            onChange={handleChange}
+          />
         </div>
-        <Input label="I am good at..." />
+        <Input
+          label="I am good at..."
+          name="skills"
+          {...form.skills}
+          onChange={handleChange}
+        />
         <Textarea
           label="Additional details"
-          value={MOCK_CONTENT}
+          name="details"
+          {...form.details}
+          onChange={handleChange}
           maxLength={1200}
         />
         {isGenerated ? (
-          <Button variant="outlined" size="large" startIcon={<RepeatIcon />}>
+          <Button
+            variant="outlined"
+            size="large"
+            startIcon={<RepeatIcon />}
+            type="submit"
+          >
             Try Again
           </Button>
         ) : (

@@ -1,14 +1,14 @@
-import { useState } from "react";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import Typography from "../Typography";
 
 type InputProps = {
   label: string;
-  value?: string;
-  errorText?: string;
-  onChange?: (value: string) => void;
-  validate?: (value: string) => string | undefined;
+  name: string;
+  value: string;
+  error: string;
+  touched: boolean;
+  onChange: (args: { field: string; value: string }) => string;
   placeholder?: string;
   className?: string;
 };
@@ -16,27 +16,16 @@ type InputProps = {
 export const Input = ({
   label,
   value,
-  errorText,
+  error,
+  name,
+  touched,
   onChange,
-  validate,
   placeholder,
   className,
 }: InputProps) => {
-  const [touched, setTouched] = useState(true);
-  const [error, setError] = useState<string | undefined>(errorText);
-
-  // const handleBlur = () => {
-  //   setTouched(true);
-  //   setError(validate(value));
-  // };
-
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const newValue = e.target.value;
-  //   onChange(newValue);
-  //   if (touched) {
-  //     setError(validate(newValue));
-  //   }
-  // };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange({ field: name, value: e.target.value });
+  };
 
   return (
     <div className={clsx(styles.root, className)}>
@@ -45,11 +34,9 @@ export const Input = ({
         className={clsx(styles.input, {
           [styles.inputError]: touched && error,
         })}
-        // onChange={handleChange}
         type="text"
         value={value}
-        // onChange={handleChange}
-        // onBlur={handleBlur}
+        onChange={handleChange}
         placeholder={placeholder}
       />
       {touched && error && (

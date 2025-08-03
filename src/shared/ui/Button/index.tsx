@@ -12,6 +12,8 @@ type ButtonProps = {
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
   className?: string;
+  type?: "submit" | "reset" | "button";
+  onClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Button = ({
@@ -24,6 +26,8 @@ const Button = ({
   endIcon,
   children,
   className,
+  type,
+  onClick,
 }: PropsWithChildren<ButtonProps>) => {
   return (
     <button
@@ -36,6 +40,8 @@ const Button = ({
         { [styles.loading]: loading },
         className
       )}
+      type={type}
+      onClick={onClick}
     >
       {loading && <Loader />}
       {!loading && (

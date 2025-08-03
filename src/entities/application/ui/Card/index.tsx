@@ -8,12 +8,14 @@ import Typography from "@/shared/ui/Typography";
 type ApplicationCardProps = {
   fullHeight?: boolean;
   content?: string;
+  loading?: boolean;
   className?: string;
 };
 
 const ApplicationCard = ({
   content,
   fullHeight,
+  loading,
   className,
 }: ApplicationCardProps) => {
   return (
@@ -26,22 +28,32 @@ const ApplicationCard = ({
         className
       )}
     >
-      <div
-        className={clsx(styles.content, {
-          [styles.contentFullHeight]: fullHeight,
-        })}
-      >
-        <Typography>{content}</Typography>
-        {!fullHeight && <div className={styles.fade} />}
-      </div>
-      <div className={styles.actions}>
-        <Button variant="text" startIcon={<TrashIcon />}>
-          Delete
-        </Button>
-        <Button variant="text" endIcon={<CopyIcon />}>
-          Copy to clipboard
-        </Button>
-      </div>
+      {loading && (
+        <div className={styles.loaderWrap}>
+          <div className={styles.loader} />
+          <div className={styles.loaderBlur} />
+        </div>
+      )}
+      {!loading && (
+        <>
+          <div
+            className={clsx(styles.content, {
+              [styles.contentFullHeight]: fullHeight,
+            })}
+          >
+            <Typography>{content}</Typography>
+            {!fullHeight && <div className={styles.fade} />}
+          </div>
+          <div className={styles.actions}>
+            <Button variant="text" startIcon={<TrashIcon />}>
+              Delete
+            </Button>
+            <Button variant="text" endIcon={<CopyIcon />}>
+              Copy to clipboard
+            </Button>
+          </div>
+        </>
+      )}
     </section>
   );
 };
