@@ -1,26 +1,16 @@
-import { ApplicationCard } from "@/entities/application";
+import { useMemo } from "react";
+import { useParams } from "react-router-dom";
 import styles from "./styles.module.css";
+import { ApplicationCard } from "@/entities/application";
 import { GoalBanner } from "@/widgets/GoalBanner";
-import { useMemo, useState } from "react";
 import { useApplicationStore } from "@/entities/application/model";
 import { ApplicationForm } from "@/features/application-form";
-import { sendPrompt } from "@/entities/AI";
-import Button from "@/shared/ui/Button";
-import { useParams } from "react-router-dom";
 
 const INITIAL_VALUE = "Your personalized job application will appear here...";
 
 const ApplicationManage = () => {
   const { id } = useParams();
-  const {
-    applications,
-    loading,
-    addApplication,
-    updateApplication,
-    removeApplication,
-    getApplication,
-  } = useApplicationStore();
-  console.log("applications: ", applications);
+  const { loading, getApplication } = useApplicationStore();
 
   const content = useMemo(() => {
     if (!id) return INITIAL_VALUE;
@@ -34,11 +24,24 @@ const ApplicationManage = () => {
         <ApplicationForm />
         <ApplicationCard
           loading={loading}
-          content={content}
+          content={"123"}
+          canRemove={false}
           fullHeight
           className={styles.card}
         />
       </div>
+      {/* <br />
+      <br />
+      <div className={styles.row}>
+        <ApplicationForm />
+        <ApplicationCard
+          loading={loading}
+          content={content}
+          canRemove={false}
+          fullHeight
+          className={styles.card}
+        />
+      </div> */}
       <GoalBanner />
     </div>
   );

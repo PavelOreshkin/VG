@@ -22,7 +22,7 @@
   color: var(--gray-text);
 
   &.contentFullHeight {
-    overflow: auto;
+    overflow-y: auto;
   }
 
   &::-webkit-scrollbar {
@@ -57,11 +57,8 @@
 
 .actions {
   width: 100%;
-
   display: flex;
   justify-content: space-between;
-  align-self: flex-end;
-
   margin-top: 8px;
 }
 

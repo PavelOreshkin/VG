@@ -1,5 +1,5 @@
 export const AppRoutes = {
-  APPLICATION: "/applications",
+  APPLICATIONS: "/applications",
   CREATE_APPLICATION: "/application",
   EDIT_APPLICATION: "/application/:id",
 

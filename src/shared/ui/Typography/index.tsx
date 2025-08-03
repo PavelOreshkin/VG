@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 import clsx from "clsx";
 
 type TypographyProps = {
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div";
+  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span" | "div" | "pre";
   type?: "h1" | "h2" | "default" | "caption";
   // type?: any;
   className?: string;
