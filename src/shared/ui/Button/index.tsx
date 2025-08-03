@@ -44,7 +44,7 @@ const Button = ({
       onClick={onClick}
       disabled={disabled}
     >
-      {loading && <Loader />}
+      {loading && <Loader className={styles.loader} />}
       {!loading && (
         <div className={styles.content}>
           {startIcon}

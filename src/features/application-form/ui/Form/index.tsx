@@ -15,6 +15,7 @@ import {
 import { useApplicationStore } from "@/entities/application/model";
 import { useNavigate, useParams } from "react-router-dom";
 import { AppRoutes } from "@/shared/routes";
+import { sendPrompt } from "@/entities/AI";
 
 const From = () => {
   const { id } = useParams();
@@ -22,8 +23,13 @@ const From = () => {
 
   const [form, setForm] = useState(INIT_FORM);
 
-  const { addApplication, updateApplication, getApplication } =
-    useApplicationStore();
+  const {
+    loading,
+    setLoading,
+    addApplication,
+    updateApplication,
+    getApplication,
+  } = useApplicationStore();
 
   const isEditFormMode = Boolean(id);
 
@@ -38,38 +44,50 @@ const From = () => {
     }));
   }, [id]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    navigate(AppRoutes.application(String(1754213030098)));
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    try {
+      setLoading(true);
 
-    const isInvalidForm = validateFields(form, handleChange);
-    console.log("isInvalidForm: ", isInvalidForm);
-    if (isInvalidForm) return;
+      e.preventDefault();
 
-    // запрос в openAI возвращает text;
-    const MOCK_TEXT = "123 456 789 0";
+      const isInvalidForm = validateFields(form, handleChange);
+      console.log("isInvalidForm: ", isInvalidForm);
+      if (isInvalidForm) return;
 
-    if (isEditFormMode && id) {
-      updateApplication({
-        id,
+      const response = await sendPrompt({
         jobTitle: form.jobTitle.value,
         company: form.company.value,
         skills: form.skills.value,
         details: form.details.value,
-        text: MOCK_TEXT,
       });
-      return;
+      console.log("response: ", response);
+
+      if (isEditFormMode && id) {
+        updateApplication({
+          id,
+          jobTitle: form.jobTitle.value,
+          company: form.company.value,
+          skills: form.skills.value,
+          details: form.details.value,
+          text: response as string,
+        });
+        return;
+      }
+
+      const newId = addApplication({
+        jobTitle: form.jobTitle.value,
+        company: form.company.value,
+        skills: form.skills.value,
+        details: form.details.value,
+        text: response as string,
+      });
+
+      navigate(AppRoutes.application(String(newId)));
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
     }
-
-    const newId = addApplication({
-      jobTitle: form.jobTitle.value,
-      company: form.company.value,
-      skills: form.skills.value,
-      details: form.details.value,
-      text: MOCK_TEXT,
-    });
-
-    navigate(AppRoutes.application(String(newId)));
   };
 
   const handleChange = ({ field, value }: { field: string; value: string }) => {
@@ -132,6 +150,7 @@ const From = () => {
             startIcon={<RepeatIcon />}
             disabled={isDisabledSubmitButton}
             type="submit"
+            loading={loading}
           >
             Try Again
           </Button>
@@ -141,6 +160,7 @@ const From = () => {
             size="large"
             disabled={isDisabledSubmitButton}
             type="submit"
+            loading={loading}
           >
             Generate Now
           </Button>

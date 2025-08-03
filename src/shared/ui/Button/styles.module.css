@@ -88,4 +88,8 @@
       opacity: 0.4;
     }
   }
+
+  & .loader path {
+    stroke: var(--success-button-bg);
+  }
 }

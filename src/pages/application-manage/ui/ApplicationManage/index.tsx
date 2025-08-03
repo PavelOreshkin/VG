@@ -1,16 +1,20 @@
 import { ApplicationCard } from "@/entities/application";
 import styles from "./styles.module.css";
 import { GoalBanner } from "@/widgets/GoalBanner";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { useApplicationStore } from "@/entities/application/model";
 import { ApplicationForm } from "@/features/application-form";
+import { sendPrompt } from "@/entities/AI";
+import Button from "@/shared/ui/Button";
+import { useParams } from "react-router-dom";
 
 const INITIAL_VALUE = "Your personalized job application will appear here...";
 
-const ApplicationManage = (args) => {
-  console.log("args: ", args);
+const ApplicationManage = () => {
+  const { id } = useParams();
   const {
     applications,
+    loading,
     addApplication,
     updateApplication,
     removeApplication,
@@ -18,19 +22,11 @@ const ApplicationManage = (args) => {
   } = useApplicationStore();
   console.log("applications: ", applications);
 
-  const [loading, setLoading] = useState(false);
-  const [content, setContent] = useState(INITIAL_VALUE);
-
-  const handleSubmit = () => {
-    const xxx = getApplication(1754208016136);
-    console.log("xxx: ", xxx);
-
-    setLoading(true);
-    setTimeout(() => {
-      setContent(MOCK_CONTENT);
-      setLoading(false);
-    }, 2000);
-  };
+  const content = useMemo(() => {
+    if (!id) return INITIAL_VALUE;
+    const application = getApplication(id);
+    return application?.text;
+  }, [id]);
 
   return (
     <div className={styles.applicationManageRoot}>

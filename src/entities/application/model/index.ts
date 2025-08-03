@@ -12,6 +12,8 @@ export type Application = {
 
 type ApplicationStore = {
   applications: Application[];
+  loading: boolean;
+  setLoading: (loading: boolean) => void;
   addApplication: (args: Omit<Application, "id">) => string;
   updateApplication: (args: Application) => void;
   removeApplication: (id: Application["id"]) => void;
@@ -25,6 +27,13 @@ export const useApplicationStore = create<ApplicationStore>()(
     persist(
       (set, get) => ({
         applications: [],
+        loading: false,
+
+        setLoading: (
+          loading: Parameters<ApplicationStore["setLoading"]>[0]
+        ) => {
+          set({ loading });
+        },
 
         addApplication: (
           values: Parameters<ApplicationStore["addApplication"]>[0]
@@ -39,25 +48,25 @@ export const useApplicationStore = create<ApplicationStore>()(
         updateApplication: ({
           id,
           ...values
-        }: Parameters<ApplicationStore["updateApplication"]>[0]) =>
+        }: Parameters<ApplicationStore["updateApplication"]>[0]) => {
           set((state) => ({
             applications: state.applications.map((application) =>
               application.id === id
                 ? { ...application, ...values }
                 : application
             ),
-          })),
+          }));
+        },
 
-        removeApplication: (id) =>
+        removeApplication: (id) => {
           set((state) => ({
             applications: state.applications.filter(
               (application) => application.id !== id
             ),
-          })),
+          }));
+        },
 
         getApplication: (id) => {
-          console.log("getApplication applications: ", get().applications);
-          console.log("getApplication id: ", id);
           return get().applications.find((item) => item.id === id);
         },
       }),

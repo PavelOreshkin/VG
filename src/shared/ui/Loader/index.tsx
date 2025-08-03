@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Loading from "@icons/loading.svg";
+import Loading from "@icons/loading.svg?react";
 import styles from "./styles.module.css";
 
 type LoaderProps = {
@@ -7,13 +7,7 @@ type LoaderProps = {
 };
 
 const Loader = ({ className }: LoaderProps) => {
-  return (
-    <img
-      src={Loading}
-      alt="loading"
-      className={clsx(styles.loaderRoot, className)}
-    />
-  );
+  return <Loading className={clsx(styles.loaderRoot, className)} />;
 };
 
 export default Loader;
