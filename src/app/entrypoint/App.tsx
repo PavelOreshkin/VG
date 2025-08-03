@@ -1,12 +1,11 @@
 import { Header } from "@/widgets/Header";
-import Providers from "./providers";
-import MainRouter from "./routes";
+import Providers from "../providers";
+import MainRouter from "../routes";
 
 import "reset-css";
-// import "normalize.css";
-import "./styles/fonts.css";
-import "./styles/global.css";
-import "./styles/theme.css";
+import "../styles/fonts.css";
+import "../styles/global.css";
+import "../styles/theme.css";
 
 function App() {
   return (

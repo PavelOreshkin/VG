@@ -6,6 +6,11 @@
   justify-content: center;
   background: var(--success-bg);
   border-radius: 12px;
+
+  @media (max-width: 700px) {
+    height: 280px;
+    margin-top: 20px;
+  }
 }
 
 .content {
@@ -25,12 +30,22 @@
   margin-top: 16px;
   color: var(--gray-text);
   text-align: center;
+
+  @media (max-width: 700px) {
+    margin-top: 12px;
+  }
 }
 
 .button {
   margin-top: 16px;
+  @media (max-width: 700px) {
+    margin-top: 12px;
+  }
 }
 
 .progress {
   margin-top: 32px;
+  @media (max-width: 700px) {
+    margin-top: 22px;
+  }
 }

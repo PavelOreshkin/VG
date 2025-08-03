@@ -1,11 +1,17 @@
 .applicationManageRoot {
   display: flex;
   flex-direction: column;
+  padding-bottom: 20px;
 }
 
-.row {
+.content {
   display: flex;
   gap: 32px;
+
+  @media (max-width: 700px) {
+    flex-direction: column;
+    gap: 22px;
+  }
 }
 
 .card {

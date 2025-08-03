@@ -60,7 +60,6 @@ const From = () => {
         skills: form.skills.value,
         details: form.details.value,
       });
-      console.log("response: ", response);
 
       if (isEditFormMode && id) {
         updateApplication({

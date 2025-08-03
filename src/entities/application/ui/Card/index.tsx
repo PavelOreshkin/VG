@@ -7,6 +7,7 @@ import Typography from "@/shared/ui/Typography";
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "@/shared/routes";
 import { useApplicationStore } from "../../model";
+import { useMobile } from "@/shared/lib/mobile/useMobile";
 
 type ApplicationCardProps = {
   id?: string;
@@ -25,6 +26,7 @@ const ApplicationCard = ({
   canRemove = true,
   className,
 }: ApplicationCardProps) => {
+  const isMobile = useMobile();
   const navigate = useNavigate();
   const { removeApplication } = useApplicationStore();
 
@@ -49,7 +51,7 @@ const ApplicationCard = ({
     removeApplication(id);
   };
 
-  console.log("content: ", content);
+  const iconSize = isMobile ? 16 : 20;
 
   return (
     <section
@@ -84,14 +86,18 @@ const ApplicationCard = ({
             {canRemove && (
               <Button
                 variant="text"
-                startIcon={<TrashIcon />}
+                startIcon={<TrashIcon height={iconSize} width={iconSize} />}
                 onClick={handleRemove}
               >
                 Delete
               </Button>
             )}
             <div />
-            <Button variant="text" endIcon={<CopyIcon />} onClick={handleCopy}>
+            <Button
+              variant="text"
+              endIcon={<CopyIcon height={iconSize} width={iconSize} />}
+              onClick={handleCopy}
+            >
               Copy to clipboard
             </Button>
           </div>

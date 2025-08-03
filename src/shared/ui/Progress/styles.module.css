@@ -28,6 +28,10 @@
 .longShape {
   width: 32px;
   margin-right: 8px;
+
+  @media (max-width: 700px) {
+    width: 26px;
+  }
 }
 
 .filled {

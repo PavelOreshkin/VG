@@ -20,7 +20,7 @@ const ApplicationManage = () => {
 
   return (
     <div className={styles.applicationManageRoot}>
-      <div className={styles.row}>
+      <div className={styles.content}>
         <ApplicationForm />
         <ApplicationCard
           loading={loading}

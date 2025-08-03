@@ -1,9 +1,21 @@
 .root {
-  height: 48px;
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.firstRow {
   display: flex;
   align-items: center;
+
   justify-content: space-between;
-  margin-bottom: 32px;
+}
+
+.secondRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 
 .logo {
@@ -23,8 +35,16 @@
 
 .progress {
   margin: 0 24px 0 16px;
+
+  @media (max-width: 700px) {
+    margin: 0 12px;
+  }
 }
 
 .button {
   width: 40px;
+
+  @media (max-width: 700px) {
+    width: 34px;
+  }
 }
