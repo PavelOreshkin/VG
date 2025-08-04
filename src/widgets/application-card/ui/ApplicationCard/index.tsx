@@ -1,13 +1,10 @@
 import styles from "./styles.module.css";
 import clsx from "clsx";
-import Button from "@/shared/ui/Button";
-import TrashIcon from "@icons/trash.svg?react";
 import Typography from "@/shared/ui/Typography";
 import { useNavigate } from "react-router-dom";
 import { AppRoutes } from "@/shared/routes";
-import { useMobile } from "@/shared/lib/mobile/useMobile";
 import { ClipboardCopy } from "@/features/clipboard-copy";
-import { useApplicationStore } from "@/entities/application";
+import { RemoveApplicationButton } from "@/features/remove-application";
 
 type ApplicationCardProps = {
   id?: string;
@@ -26,35 +23,18 @@ const ApplicationCard = ({
   canRemove = true,
   className,
 }: ApplicationCardProps) => {
-  const isMobile = useMobile();
   const navigate = useNavigate();
-  const { removeApplication } = useApplicationStore();
 
   const handleOpenCard = () => {
     if (!id) return;
     navigate(AppRoutes.application(id));
   };
 
-  const handleCopy = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
-    if (!content) return;
-    try {
-      await navigator.clipboard.writeText(content);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  const handleRemove = (e: React.MouseEvent<HTMLButtonElement>) => {
-    if (!id) return;
-    e.stopPropagation();
-    removeApplication(id);
-  };
-
-  const iconSize = isMobile ? 16 : 20;
-
   return (
     <section
+      tabIndex={0}
+      role="button"
+      aria-label="Open details section"
       className={clsx(
         styles.root,
         {
@@ -63,6 +43,13 @@ const ApplicationCard = ({
         className
       )}
       onClick={handleOpenCard}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          e.stopPropagation();
+          handleOpenCard();
+        }
+      }}
     >
       {loading && (
         <div className={styles.loaderWrap}>
@@ -83,15 +70,8 @@ const ApplicationCard = ({
             {!fullHeight && <div className={styles.fade} />}
           </div>
           <div className={styles.actions}>
-            {canRemove && (
-              <Button
-                variant="text"
-                startIcon={<TrashIcon height={iconSize} width={iconSize} />}
-                onClick={handleRemove}
-                aria-label="delete"
-              >
-                Delete
-              </Button>
+            {canRemove && Boolean(id) && (
+              <RemoveApplicationButton id={id as string} />
             )}
             <div />
             <ClipboardCopy content={content} />

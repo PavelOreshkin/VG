@@ -13,7 +13,7 @@ type ButtonProps = {
   endIcon?: React.ReactNode;
   className?: string;
   type?: "submit" | "reset" | "button";
-  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const Button = ({
@@ -30,6 +30,13 @@ const Button = ({
   onClick,
   ...props
 }: PropsWithChildren<ButtonProps>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      e.stopPropagation();
+      onClick?.();
+    }
+  };
   return (
     <button
       className={clsx(
@@ -43,6 +50,7 @@ const Button = ({
       )}
       type={type}
       onClick={onClick}
+      onKeyDown={handleKeyDown}
       disabled={disabled}
       {...props}
     >

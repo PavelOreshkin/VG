@@ -10,8 +10,8 @@ type ClipboardCopyProps = {
 const ClipboardCopy = ({ content }: ClipboardCopyProps) => {
   const isMobile = useMobile();
 
-  const handleCopy = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation();
+  const handleCopy = async (e?: React.MouseEvent<HTMLButtonElement>) => {
+    e?.stopPropagation();
     copy(content);
   };
 
