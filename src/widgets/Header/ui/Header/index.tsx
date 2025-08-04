@@ -10,7 +10,7 @@ import CheckIcon from "@icons/check.svg?react";
 import Button from "@/shared/ui/Button";
 import { APPLICATIONS_MAX_COUNT } from "@/shared/constants";
 import { AppRoutes } from "@/shared/routes";
-import { useMobile } from "@/shared/lib/mobile/useMobile";
+import { useMobile } from "@/shared/lib/mobile";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Header = () => {
   const isFull = applications.length >= APPLICATIONS_MAX_COUNT;
   const filled = applications.length;
 
-  const handleGoHomePage = () => {
+  const handleGoHomePage = async () => {
     navigate(AppRoutes.APPLICATIONS);
   };
 

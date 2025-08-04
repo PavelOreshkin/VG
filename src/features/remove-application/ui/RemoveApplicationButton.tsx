@@ -1,6 +1,6 @@
 import Button from "@/shared/ui/Button";
 import TrashIcon from "@icons/trash.svg?react";
-import { useMobile } from "@/shared/lib/mobile/useMobile";
+import { useMobile } from "@/shared/lib/mobile";
 import { useApplicationStore } from "@/entities/application";
 
 type RemoveApplicationButtonProps = {

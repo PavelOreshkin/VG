@@ -1,6 +1,6 @@
 import Button from "@/shared/ui/Button";
 import CopyIcon from "@icons/copy.svg?react";
-import { useMobile } from "@/shared/lib/mobile/useMobile";
+import { useMobile } from "@/shared/lib/mobile";
 import { copy } from "../api/copy";
 
 type ClipboardCopyProps = {

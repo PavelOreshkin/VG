@@ -5,6 +5,8 @@ import { GoalBanner } from "@/widgets/goal-banner";
 import { useApplicationStore } from "@/entities/application";
 import { ApplicationForm } from "@/features/application-form";
 import { ApplicationCard } from "@/widgets/application-card";
+import { ErrorBoundary } from "@/shared/lib/error";
+import Typography from "@/shared/ui/Typography";
 
 const INITIAL_CARD_CONTENT =
   "Your personalized job application will appear here...";
@@ -22,13 +24,29 @@ const ApplicationManage = () => {
   return (
     <div className={styles.applicationManageRoot}>
       <div className={styles.content}>
-        <ApplicationForm />
-        <ApplicationCard
-          loading={loading}
-          content={content}
-          canRemove={false}
-          fullHeight
-        />
+        <ErrorBoundary
+          fallback={
+            <Typography>
+              Something went wrong with form, we already work on it
+            </Typography>
+          }
+        >
+          <ApplicationForm />
+        </ErrorBoundary>
+        <ErrorBoundary
+          fallback={
+            <Typography>
+              Something went wrong with generated output, we already work on it
+            </Typography>
+          }
+        >
+          <ApplicationCard
+            loading={loading}
+            content={content}
+            canRemove={false}
+            fullHeight
+          />
+        </ErrorBoundary>
       </div>
       <GoalBanner />
     </div>

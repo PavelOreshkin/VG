@@ -1,5 +1,5 @@
 import { useEffect, useState, type PropsWithChildren } from "react";
-import { MobileContext } from "@/shared/lib/mobile/MobileContext";
+import { MobileContext } from "@/shared/lib/mobile";
 
 export const MobileProvider = ({ children }: PropsWithChildren) => {
   const [isMobile, setIsMobile] = useState(() =>
