@@ -20,6 +20,7 @@ export default defineConfig({
     }),
     svgr(),
   ],
+  base: "/",
   resolve: {
     alias: {
       "@": path.resolve("./src"),
