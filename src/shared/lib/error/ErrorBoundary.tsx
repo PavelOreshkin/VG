@@ -23,8 +23,6 @@ export class ErrorBoundary extends PureComponent<Props> {
   }
 
   componentDidCatch(error: unknown, errorInfo: React.ErrorInfo) {
-    console.log("error: ", error);
-    console.log("errorInfo: ", errorInfo);
     errorLogger.error("ErrorBoundary", error, errorInfo?.componentStack);
   }
 

@@ -11,7 +11,6 @@ import Button from "@/shared/ui/Button";
 import { APPLICATIONS_MAX_COUNT } from "@/shared/constants";
 import { AppRoutes } from "@/shared/routes";
 import { useMobile } from "@/shared/lib/mobile";
-import { memo } from "react";
 
 const Header = () => {
   const navigate = useNavigate();

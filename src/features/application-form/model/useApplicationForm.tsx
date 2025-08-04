@@ -9,6 +9,7 @@ import {
   disabledSubmitButton,
 } from "./validation";
 import { INIT_FORM } from "./constants";
+import { errorLogger } from "@/shared/lib/error";
 
 const useApplicationForm = () => {
   const { id } = useParams();
@@ -75,7 +76,7 @@ const useApplicationForm = () => {
 
       navigate(AppRoutes.application(String(newId)));
     } catch (error) {
-      console.error(error);
+      errorLogger.error("submit application form", error);
     } finally {
       setLoading(false);
     }

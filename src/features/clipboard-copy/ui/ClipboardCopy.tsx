@@ -2,6 +2,7 @@ import Button from "@/shared/ui/Button";
 import CopyIcon from "@icons/copy.svg?react";
 import { useMobile } from "@/shared/lib/mobile";
 import { copy } from "../api/copy";
+import { useRef, useState } from "react";
 
 type ClipboardCopyProps = {
   content?: string;
@@ -9,10 +10,22 @@ type ClipboardCopyProps = {
 
 const ClipboardCopy = ({ content }: ClipboardCopyProps) => {
   const isMobile = useMobile();
+  const timerId = useRef<number | undefined>(undefined);
+  const [copied, setCopied] = useState(false);
 
   const handleCopy = async (e?: React.MouseEvent<HTMLButtonElement>) => {
     e?.stopPropagation();
-    copy(content);
+
+    clearTimeout(timerId.current);
+
+    setCopied(true);
+
+    await copy(content);
+
+    timerId.current = setTimeout(
+      () => setCopied(false),
+      2000
+    ) as unknown as number;
   };
 
   const iconSize = isMobile ? 16 : 20;
@@ -24,7 +37,7 @@ const ClipboardCopy = ({ content }: ClipboardCopyProps) => {
       onClick={handleCopy}
       aria-label="copy"
     >
-      Copy to clipboard
+      {copied ? "Copied!" : "Copy to clipboard"}
     </Button>
   );
 };

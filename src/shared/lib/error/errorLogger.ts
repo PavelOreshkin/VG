@@ -3,7 +3,7 @@ export class ErrorLogger {
   error(
     context: string = "unknown",
     error: unknown,
-    stack: React.ErrorInfo["componentStack"]
+    stack?: React.ErrorInfo["componentStack"]
   ) {
     console.error(`[Error][${context}]`, error || "unknown error", stack);
   }
