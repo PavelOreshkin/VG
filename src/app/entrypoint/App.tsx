@@ -11,7 +11,7 @@ function App() {
   return (
     <Providers>
       <Header />
-      <main>
+      <main style={{ flexGrow: 1 }}>
         <MainRouter />
       </main>
     </Providers>

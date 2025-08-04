@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router";
 
 const Applications = lazy(() => import("@/pages/applications"));
 const ApplicationManage = lazy(() => import("@/pages/application-manage"));
+const NotFound = lazy(() => import("@/pages/not-found"));
 
 const MainRouter = () => {
   return (
@@ -22,6 +23,7 @@ const MainRouter = () => {
           path={AppRoutes.EDIT_APPLICATION}
           Component={ApplicationManage}
         />
+        <Route path="*" Component={NotFound} />
       </Routes>
     </Suspense>
   );
