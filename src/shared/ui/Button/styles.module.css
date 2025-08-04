@@ -95,6 +95,20 @@
       font-size: 14px;
     }
   }
+
+  &:hover {
+    color: var(--gray-button-text-hover);
+    & path {
+      stroke: var(--gray-button-text-hover);
+    }
+  }
+
+  &:active {
+    color: var(--gray-button-text-active);
+    & path {
+      stroke: var(--gray-button-text-active);
+    }
+  }
 }
 
 .containedVariant {
