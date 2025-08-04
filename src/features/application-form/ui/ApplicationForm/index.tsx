@@ -8,7 +8,7 @@ import RepeatIcon from "@icons/repeat.svg?react";
 import styles from "./styles.module.css";
 import useApplicationForm from "../../model/useApplicationForm";
 
-const From = () => {
+const ApplicationFrom = () => {
   const {
     form,
     title,
@@ -20,16 +20,17 @@ const From = () => {
   } = useApplicationForm();
 
   return (
-    <div className={styles.fromRoot}>
+    <section className={styles.fromRoot}>
       <Typography
         as="h2"
         type="h2"
-        className={clsx({
+        className={clsx(styles.title, {
           [styles.emptyTitle]: !form.jobTitle.value && !form.company.value,
         })}
       >
         {title}
       </Typography>
+
       <Divider className={styles.divider} />
       <form action="submit" className={styles.from} onSubmit={handleSubmit}>
         <div className={styles.row}>
@@ -88,8 +89,8 @@ const From = () => {
           </Button>
         )}
       </form>
-    </div>
+    </section>
   );
 };
 
-export default From;
+export default ApplicationFrom;

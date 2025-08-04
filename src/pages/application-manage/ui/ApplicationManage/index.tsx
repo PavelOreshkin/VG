@@ -28,7 +28,6 @@ const ApplicationManage = () => {
           content={content}
           canRemove={false}
           fullHeight
-          className={styles.card}
         />
       </div>
       <GoalBanner />

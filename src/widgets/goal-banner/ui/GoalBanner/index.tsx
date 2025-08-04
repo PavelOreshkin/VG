@@ -13,7 +13,7 @@ const GoalBanner = () => {
   }
 
   return (
-    <div className={styles.goalBannerRoot}>
+    <section className={styles.goalBannerRoot}>
       <div className={styles.content}>
         <Typography as="h2" type="h2" className={styles.title}>
           Hit your goal
@@ -31,7 +31,7 @@ const GoalBanner = () => {
           className={styles.progress}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

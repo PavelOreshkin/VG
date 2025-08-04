@@ -31,7 +31,7 @@ const ApplicationCard = ({
   };
 
   return (
-    <section
+    <article
       tabIndex={0}
       role="button"
       aria-label="Open details section"
@@ -78,7 +78,7 @@ const ApplicationCard = ({
           </div>
         </>
       )}
-    </section>
+    </article>
   );
 };
 
