@@ -1,3 +1,4 @@
+import { memo } from "react";
 import type { PropsWithChildren } from "react";
 import styles from "./styles.module.css";
 import clsx from "clsx";
@@ -66,4 +67,4 @@ const Button = ({
   );
 };
 
-export default Button;
+export default memo(Button);

@@ -17,6 +17,10 @@
 .content {
   display: flex;
   align-items: center;
+
+  & p {
+    transform: translateY(2px);
+  }
 }
 
 .smallSize {

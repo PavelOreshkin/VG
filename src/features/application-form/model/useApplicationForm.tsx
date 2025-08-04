@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useApplicationStore } from "@/entities/application";
 import { sendPrompt } from "@/entities/open-ai";
@@ -81,11 +81,17 @@ const useApplicationForm = () => {
     }
   };
 
-  const handleChange = ({ field, value }: { field: string; value: string }) => {
-    const error = validateField(field, value);
-    setForm((prev) => ({ ...prev, [field]: { value, error, touched: true } }));
-    return error;
-  };
+  const handleChange = useCallback(
+    ({ field, value }: { field: string; value: string }) => {
+      const error = validateField(field, value);
+      setForm((prev) => ({
+        ...prev,
+        [field]: { value, error, touched: true },
+      }));
+      return error;
+    },
+    []
+  );
 
   const title =
     [form.jobTitle.value, form.company.value]

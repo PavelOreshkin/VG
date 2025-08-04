@@ -6,7 +6,7 @@ import Divider from "@/shared/ui/Divider";
 const Header = () => (
   <header>
     <div className={styles.header}>
-      <Typography as="h1" type="h1">
+      <Typography as="h1" type="h1" className={styles.title}>
         Applications
       </Typography>
       <CreateApplicationButton size="medium" />

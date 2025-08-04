@@ -1,3 +1,4 @@
+import { memo } from "react";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import Typography from "../Typography";
@@ -50,4 +51,4 @@ export const Input = ({
   );
 };
 
-export default Input;
+export default memo(Input);

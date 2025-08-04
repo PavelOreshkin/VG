@@ -4,6 +4,10 @@
   align-items: center;
 }
 
+.title {
+  margin-right: 20px;
+}
+
 .divider {
   margin: 16px 0 24px;
 }

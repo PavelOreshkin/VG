@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import Typography from "../Typography";
+import { memo } from "react";
 
 type TextareaProps = {
   label: string;
@@ -52,4 +53,4 @@ export const Textarea = ({
   );
 };
 
-export default Textarea;
+export default memo(Textarea);
