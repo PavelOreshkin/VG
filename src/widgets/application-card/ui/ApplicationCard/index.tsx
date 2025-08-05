@@ -1,3 +1,4 @@
+import type { Ref } from "react";
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import Typography from "@/shared/ui/Typography";
@@ -13,6 +14,7 @@ type ApplicationCardProps = {
   loading?: boolean;
   canRemove?: boolean;
   className?: string;
+  ref?: Ref<HTMLElement>;
 };
 
 const ApplicationCard = ({
@@ -22,6 +24,7 @@ const ApplicationCard = ({
   loading,
   canRemove = true,
   className,
+  ref,
 }: ApplicationCardProps) => {
   const navigate = useNavigate();
 
@@ -32,6 +35,7 @@ const ApplicationCard = ({
 
   return (
     <article
+      ref={ref}
       tabIndex={0}
       role="button"
       aria-label="Open details section"

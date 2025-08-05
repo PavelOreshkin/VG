@@ -11,7 +11,7 @@ import {
 import { INIT_FORM } from "./constants";
 import { errorLogger } from "@/shared/lib/error";
 
-const useApplicationForm = () => {
+const useApplicationForm = (scrollToCard: () => void) => {
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -40,6 +40,7 @@ const useApplicationForm = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
+      scrollToCard();
       setLoading(true);
 
       e.preventDefault();

@@ -8,7 +8,11 @@ import RepeatIcon from "@icons/repeat.svg?react";
 import styles from "./styles.module.css";
 import useApplicationForm from "../../model/useApplicationForm";
 
-const ApplicationFrom = () => {
+type ApplicationFromProps = {
+  scrollToCard: () => void;
+};
+
+const ApplicationFrom = ({ scrollToCard }: ApplicationFromProps) => {
   const {
     form,
     title,
@@ -17,7 +21,7 @@ const ApplicationFrom = () => {
     isDisabledSubmitButton,
     handleChange,
     handleSubmit,
-  } = useApplicationForm();
+  } = useApplicationForm(scrollToCard);
 
   return (
     <section className={styles.fromRoot}>
