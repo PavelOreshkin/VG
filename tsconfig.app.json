@@ -17,18 +17,11 @@
 
     /* Linting */
     "strict": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true,
-
-    "baseUrl": ".",
-    "paths": {
-      "@/*": ["src/*"],
-      "@icons/*": ["src/shared/assets/icons/*"],
-      "@shared/*": ["src/shared/*"]
-    }
+    "noUncheckedSideEffectImports": true
   },
   "include": ["src"]
 }

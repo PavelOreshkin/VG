@@ -1,1 +1,0 @@
-export { sendPrompt } from "./api";
